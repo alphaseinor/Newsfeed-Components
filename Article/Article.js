@@ -142,13 +142,13 @@ createArticle = (articleInfo) => {
   const articleSpan = document.createElement('span');
 
   //create structure
-  articleInfo.appendChild(articleH2);
-  articleInfo.appendChild(articleDate);
-  articleInfo.appendChild(articleElement1);
-  articleInfo.appendChild(articleElement2);
-  articleInfo.appendChild(articleElement3);
-  articleInfo.appendChild(articleSpan);
-  articleInfo.appendChild(articleContainer);
+  articleContainer.appendChild(articleH2);
+  articleContainer.appendChild(articleDate);
+  articleContainer.appendChild(articleElement1);
+  articleContainer.appendChild(articleElement2);
+  articleContainer.appendChild(articleElement3);
+  articleContainer.appendChild(articleSpan);
+  articleContainer.appendChild(articleContainer);
 
   //assign content from articleInfo
   articleH2.textContent.add(articleInfo.title);
@@ -162,5 +162,17 @@ createArticle = (articleInfo) => {
   articleDate.classList.add('date');
   articleSpan.classList.add('expandButton');
 
+  //Step 2: Add an event listener to the expandButton span. 
+  //This event listener should toggle the class 'article-open' on the 'article' div.
+
   //event handlers
+
+  articleSpan.addEventListener('click', x =>{
+    articleSpan.classList.toggle('article-open');
+  });
+
+  //Step 3: return the entire component.
+
+  return articleContainer
+
 }

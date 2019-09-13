@@ -148,14 +148,13 @@ createArticle = (articleInfo) => {
   articleContainer.appendChild(articleElement2);
   articleContainer.appendChild(articleElement3);
   articleContainer.appendChild(articleSpan);
-  articleContainer.appendChild(articleContainer);
-
+  
   //assign content from articleInfo
-  articleH2.textContent.add(articleInfo.title);
-  articleDate.textContent.add(articleInfo.date);
-  articleElement1.textContent.add(articleInfo.firstParagraph);
-  articleElement2.textContent.add(articleInfo.secondParagraph);
-  articleElement3.textContent.add(articleInfo.thirdParagraph);
+  articleH2.textContent = articleInfo.title;
+  articleDate.textContent = articleInfo.date;
+  articleElement1.textContent = articleInfo.firstParagraph;
+  articleElement2.textContent = articleInfo.secondParagraph;
+  articleElement3.textContent = articleInfo.thirdParagraph;
 
   //add styling
   articleContainer.classList.add('article');
@@ -181,8 +180,8 @@ createArticle = (articleInfo) => {
 
 const articleAccordion = document.querySelector('.articles');
 
-data.forEach(article => {
-  articleAccordion.appendChild(createArticle(article))
+data.forEach(a => {
+  articleAccordion.appendChild(createArticle(a))
 })
 
 

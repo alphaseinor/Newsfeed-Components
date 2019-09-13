@@ -130,7 +130,7 @@ const data = [
     <span class='expandButton'></span>
   </div> */
 
-createArticle(articleInfo) {
+createArticle = (articleInfo) => {
   //create elements
   const articleContainer = document.createElement('div');
   const articleH2 = document.createElement('h2');
@@ -148,5 +148,9 @@ createArticle(articleInfo) {
   articleInfo.appendChild(articleSpan);
   articleInfo.appendChild(articleContainer);
   //assign content from articleInfo
-  
+  articleH2.textContent.add(articleInfo.title);
+  articleDate.textContent.add(articleInfo.date);
+  articleElement1.textContent.add(articleInfo.firstParagraph);
+  articleElement2.textContent.add(articleInfo.secondParagraph);
+  articleElement3.textContent.add(articleInfo.thirdParagraph);
 }

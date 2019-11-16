@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "it's my own personal article",
+    date: "September 12th 2019",
+    firstParagraph: "first para",
+    secondParagraph: "second para",
+    thirdParagraph: "third para"
   }
 ];
 
@@ -112,3 +119,70 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+
+/* 
+  <div class="article">
+    <h2>{title of the article}</h2>
+    <p class="date">{date of the article}</p>
+      {three separate paragraph elements}
+
+    <span class='expandButton'></span>
+  </div> */
+
+createArticle = (articleInfo) => {
+
+  //create elements
+  const articleContainer = document.createElement('div');
+  const articleH2 = document.createElement('h2');
+  const articleDate = document.createElement('p')
+  const articleElement1 = document.createElement('p');
+  const articleElement2 = document.createElement('p');
+  const articleElement3 = document.createElement('p');
+  const articleSpan = document.createElement('span');
+
+  //create structure
+  articleContainer.appendChild(articleH2);
+  articleContainer.appendChild(articleDate);
+  articleContainer.appendChild(articleElement1);
+  articleContainer.appendChild(articleElement2);
+  articleContainer.appendChild(articleElement3);
+  articleContainer.appendChild(articleSpan);
+  
+  //assign content from articleInfo
+  articleH2.textContent = articleInfo.title;
+  articleDate.textContent = articleInfo.date;
+  articleElement1.textContent = articleInfo.firstParagraph;
+  articleElement2.textContent = articleInfo.secondParagraph;
+  articleElement3.textContent = articleInfo.thirdParagraph;
+
+  //add styling
+  articleContainer.classList.add('article');
+  articleDate.classList.add('date');
+  articleSpan.classList.add('expandButton');
+
+  //Step 2: Add an event listener to the expandButton span. 
+  //This event listener should toggle the class 'article-open' on the 'article' div.
+
+  //event handlers
+
+  articleSpan.addEventListener('click', x =>{
+    articleSpan.classList.toggle('article-open');
+  });
+
+  //Step 3: return the entire component.
+
+  return articleContainer
+}
+
+// Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
+
+
+const articleAccordion = document.querySelector('.articles');
+
+data.forEach(a => {
+  articleAccordion.appendChild(createArticle(a))
+})
+
+
+  // Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.

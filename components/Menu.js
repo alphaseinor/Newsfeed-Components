@@ -19,22 +19,23 @@ let menuItems = [
   </div>
 */
 
-const menuMaker = function(menuArray){
+const menuMaker = function (menuArray) {
   const menuDiv = document.createElement('div');
-    menuDiv.classList.add('menu');
-    const menuUl= document.createElement('ul');
-    menuDiv.appendChild(menuUl);
+  menuDiv.classList.add('menu');
+  const menuUl = document.createElement('ul');
+  menuDiv.appendChild(menuUl);
 
-    for (let i= 0; i<menuArray.length; i++){
-     let liChild = document.createElement('li');
-     liChild.textContent = menuArray[i];
-      menuUl.appendChild(liChild)
-    }
+  menuArray.forEach(item => {
+    const liChild = document.createElement('li');
+    liChild.textContent = item
+    menuUl.appendChild(liChild)
+  })
+  
 
-const menuButton = document.querySelector('.menu-button');
-menuButton.addEventListener('click', () => {
-  menuDiv.classList.toggle('.menu-open')
-});
+  const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', () => {
+    menuDiv.classList.toggle('.menu--open')
+  });
 
   return menuDiv
 }
